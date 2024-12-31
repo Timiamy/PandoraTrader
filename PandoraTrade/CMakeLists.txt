@@ -5,7 +5,7 @@ cmake_minimum_required (VERSION 3.8)
 # set the project name
 project (PandoraTrade)
 
-# ���c++��������־������c++11֧�ֱ���
+# 检查c++编译器标志，设置c++11支持变量
 include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
 CHECK_CXX_COMPILER_FLAG("-std=c++0x" COMPILER_SUPPORTS_CXX0X)
@@ -20,8 +20,8 @@ endif()
 
 #set(CMAKE_EXE_LINKER_FLAGS "-no-pie")
 
-set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")  # Debugģʽ�µı���ָ��
-set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")         # Releaseģʽ�µı���ָ��
+set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")  # Debug模式下的编译指令
+set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")         # Release模式下的编译指令
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG   ${PROJECT_SOURCE_DIR}/../bin/Debug/)    
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE  ${PROJECT_SOURCE_DIR}/../bin/Release/) 
@@ -48,7 +48,7 @@ elseif (CMAKE_BUILD_TYPE STREQUAL RELEASE)
 endif()
 
 
-# ��ȡ���ڴ�����CMakeLists.txt���ڵ��ļ������������Դ�ļ����ŵ�DIR_SRC��������
+# 获取正在处理的CMakeLists.txt所在的文件夹下面的所有源文件，放到DIR_SRC变量里面
 aux_source_directory(${CMAKE_CURRENT_LIST_DIR} DIR_SRC)
 
 # add the executable
